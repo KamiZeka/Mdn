@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://services-moreno.fr/" />
   <meta property="og:image" content="https://services-moreno.fr/assets/logo-mdn.jpg" />
   <link rel="icon" href="assets/favicon.png" />
-  <link rel="stylesheet" href="style.css?v=20260710e" />
+  <link rel="stylesheet" href="style.css?v=20260710-final" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,12 +80,12 @@
       </div>
       <div class="cards three">
         <article class="service-card">
-          <div class="icon">🛻</div>
+          <div class="icon">📦</div>
           <h3>Débarras</h3>
           <p>Maison, appartement, cave, grenier, garage, dépendance, local professionnel, succession ou logement encombré.</p>
         </article>
         <article class="service-card">
-          <div class="icon">🧼</div>
+          <div class="icon">🧽</div>
           <h3>Nettoyage spécialisé</h3>
           <p>Remise en état, fin de bail/location, après débarras, surfaces très poussiéreuses, sols, sanitaires, cuisine, cave, garage ou fin de travaux/chantier.</p>
         </article>
@@ -115,7 +115,7 @@
               </label>
               <label class="big-choice">
                 <input type="checkbox" id="serviceNettoyage" />
-                <span><strong>🧽 Estimer un nettoyage spécialisé</strong><small>Remise en état, fin de bail/location, cave, garage, après débarras, très sale.</small></span>
+                <span><strong>🧽 Estimer un nettoyage spécialisé</strong><small>Remise en état, fin de bail/location, cave, garage, après débarras, remise en état.</small></span>
               </label>
             </div>
             <p class="discount-note" id="discountNote" hidden>✅ Débarras + nettoyage spécialisé : remise groupée -10 % appliquée automatiquement.</p>
@@ -224,10 +224,10 @@
                 <label class="check-item"><input type="checkbox" name="debSpecial" value="moisissures" data-label="Moisissures importantes" /><span>Moisissures importantes</span></label>
                 <label class="check-item"><input type="checkbox" name="debSpecial" value="nuisibles" data-label="Présence de nuisibles" /><span>Présence de nuisibles</span></label>
                 <label class="check-item"><input type="checkbox" name="debSpecial" value="insalubre" data-label="Logement très insalubre" /><span>Logement très insalubre</span></label>
-                <label class="check-item"><input type="checkbox" name="debSpecial" value="diogene" data-label="Accumulation extrême / Diogène" /><span>Accumulation extrême / Diogène</span></label>
+                <label class="check-item"><input type="checkbox" name="debSpecial" value="diogene" data-label="Accumulation importante / suspicion Diogène" /><span>Accumulation importante / suspicion Diogène</span></label>
                 <label class="check-item"><input type="checkbox" name="debSpecial" value="deces" data-label="Après décès" /><span>Après décès</span></label>
               </div>
-              <p class="small-alert">Pour les cas très insalubres, Diogène, nuisibles ou produits spécifiques, le tarif final sera confirmé après photos, appel ou visite.</p>
+              <p class="small-alert">Pour les cas très insalubres, suspicion Diogène, nuisibles, produits spécifiques, déchets biologiques, seringues, excréments, sang, fluides corporels ou après décès, le tarif final sera confirmé après photos, appel ou visite. MDN pourra refuser l’intervention ou orienter vers un prestataire spécialisé si le risque sanitaire est trop important.</p>
             </div>
           </fieldset>
 
@@ -245,7 +245,7 @@
                   <option value="fin_bail">Fin de bail / location</option>
                   <option value="cave_garage">Cave / garage / dépendance</option>
                   <option value="travaux">Fin de travaux / chantier</option>
-                  <option value="logement_encombre">Logement encombré / très poussiéreux</option>
+                  <option value="logement_encombre">Logement encombré / stockage longue durée</option>
                   <option value="succession">Après succession</option>
                   <option value="autre">Autre à préciser</option>
                 </select>
@@ -308,10 +308,10 @@
                 <label class="check-item"><input type="checkbox" name="netSpecial" value="moisissures" data-label="Moisissures importantes" /><span>Moisissures importantes</span></label>
                 <label class="check-item"><input type="checkbox" name="netSpecial" value="nuisibles" data-label="Présence de nuisibles" /><span>Présence de nuisibles</span></label>
                 <label class="check-item"><input type="checkbox" name="netSpecial" value="insalubre" data-label="Logement très insalubre" /><span>Logement très insalubre</span></label>
-                <label class="check-item"><input type="checkbox" name="netSpecial" value="diogene" data-label="Accumulation extrême / Diogène" /><span>Accumulation extrême / Diogène</span></label>
+                <label class="check-item"><input type="checkbox" name="netSpecial" value="diogene" data-label="Accumulation importante / suspicion Diogène" /><span>Accumulation importante / suspicion Diogène</span></label>
                 <label class="check-item"><input type="checkbox" name="netSpecial" value="deces" data-label="Après décès" /><span>Après décès</span></label>
               </div>
-              <p class="small-alert">Ces cas demandent souvent des photos ou une visite pour confirmer le devis. Le nettoyage MDN reste un nettoyage spécialisé, pas du ménage régulier.</p>
+              <p class="small-alert">Ces cas demandent des photos ou une visite avant confirmation. Le nettoyage MDN reste un nettoyage spécialisé, pas du ménage régulier. En cas de déchets biologiques, seringues, excréments, sang, fluides corporels, nuisibles importants ou après décès, MDN pourra refuser l’intervention ou orienter vers un prestataire spécialisé.</p>
             </div>
           </fieldset>
         </form>
@@ -394,6 +394,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260710e"></script>
+  <script src="script.js?v=20260710-final"></script>
 </body>
 </html>

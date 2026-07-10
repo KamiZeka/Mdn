@@ -55,3 +55,9 @@ Remplace `TON-PSEUDO-GITHUB` par ton nom d'utilisateur GitHub.
 
 
 Mise à jour : grille de tarifs nettoyage adoucie pour éviter une fourchette haute trop élevée sur les logements en état correct. Cache CSS/JS forcé en v=20260710d.
+
+
+Mise à jour : libellé prudent “Accumulation importante / suspicion Diogène” et alertes indiquant que MDN peut refuser ou orienter vers un prestataire spécialisé en cas de risque sanitaire important.
+
+
+Version finale V5 : prix calibrés marché Landes, débarras non présélectionné, icônes carton/éponge, mention Diogène prudente, cache CSS/JS final.

@@ -8,11 +8,11 @@ const num = (id, fallback = 0) => {
 };
 
 const rateDebarras = {
-  garage: [25, 35, 45],
-  cave: [30, 40, 55],
-  appartement: [35, 50, 65],
-  maison: [30, 45, 60],
-  local: [35, 50, 70]
+  garage: [22, 30, 40],
+  cave: [25, 35, 50],
+  appartement: [30, 42, 55],
+  maison: [25, 35, 50],
+  local: [30, 42, 60]
 };
 
 const fillCoeff = {
@@ -130,8 +130,8 @@ function calcDebarras() {
   if (specialLabels.length) {
     details.push(`Situation particulière : ${specialLabels.join(', ')}`);
   }
-  if (hasAny(specials, ['nuisibles', 'insalubre', 'diogene'])) {
-    details.push('⚠️ Cas sensible : estimation indicative uniquement, devis à confirmer après photos, appel ou visite.');
+  if (hasAny(specials, ['nuisibles', 'insalubre', 'diogene', 'deces'])) {
+    details.push('⚠️ Cas sensible : estimation indicative uniquement. Photos, appel ou visite nécessaires. Si le risque sanitaire est trop important, MDN pourra refuser l’intervention ou orienter vers un prestataire spécialisé.');
   }
 
   return {
@@ -186,7 +186,7 @@ function calcNettoyage() {
     details.push(`Situation particulière nettoyage : ${specialLabels.join(', ')}`);
   }
   if (hasAny(specials, ['nuisibles', 'insalubre', 'diogene', 'deces'])) {
-    details.push('⚠️ Nettoyage sensible : photos ou visite nécessaires avant validation du devis.');
+    details.push('⚠️ Nettoyage sensible : photos ou visite nécessaires avant validation du devis. En cas de déchets biologiques, seringues, excréments, sang, fluides corporels, nuisibles importants ou après décès, MDN pourra refuser l’intervention ou orienter vers un prestataire spécialisé.');
   }
 
   return {
