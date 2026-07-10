@@ -22,15 +22,16 @@ const fillCoeff = {
   sature: 0.80
 };
 
+
 const rateNettoyage = {
-  remise_etat: [8, 12, 18],
+  remise_etat: [6, 9, 13],
   apres_debarras: [6, 10, 15],
   fin_bail: [6, 10, 15],
   cave_garage: [6, 10, 15],
   travaux: [8, 12, 18],
-  logement_encombre: [10, 18, 25],
-  succession: [8, 14, 22],
-  autre: [10, 18, 25]
+  logement_encombre: [10, 16, 24],
+  succession: [8, 13, 20],
+  autre: [8, 12, 18]
 };
 
 const wasteSupplements = {
@@ -105,7 +106,7 @@ function calcDebarras() {
     if (wasteSupplements[waste]) prices = addTriplet(prices, wasteSupplements[waste]);
   });
 
-  prices = minTriplet(prices, [180, 220, 280]);
+  prices = minTriplet(prices, [250, 300, 380]);
 
   const wasteLabels = checkedLabels('debDechets');
   const specialLabels = checkedLabels('debSpecial');
@@ -146,9 +147,9 @@ function calcNettoyage() {
   let prices = (rateNettoyage[type] || rateNettoyage.autre).map(rate => surface * rate);
 
   let coeff = 1;
-  if (val('netEtat') === 'poussiereux') coeff += 0.10;
-  if (val('netEtat') === 'sale') coeff += 0.25;
-  if (val('netEtat') === 'tres_sale') coeff += 0.50;
+  if (val('netEtat') === 'poussiereux') coeff += 0.12;
+  if (val('netEtat') === 'sale') coeff += 0.30;
+  if (val('netEtat') === 'tres_sale') coeff += 0.60;
 
   const specials = checkedValues('netSpecial');
   if (specials.includes('moisissures')) coeff += 0.15;
@@ -167,7 +168,7 @@ function calcNettoyage() {
   if (val('netEau') === 'non') prices = addTriplet(prices, [60, 100, 180]);
   if (val('netElectricite') === 'non') prices = addTriplet(prices, [40, 80, 150]);
 
-  prices = minTriplet(prices, [120, 160, 220]);
+  prices = minTriplet(prices, [150, 220, 300]);
 
   const specialLabels = checkedLabels('netSpecial');
   const details = [
@@ -238,7 +239,7 @@ function calculate() {
   if (hasDebarras && hasNettoyage) {
     discount = total.map(p => round10(p * 0.10));
     total = total.map((p, i) => p - discount[i]);
-    total = minTriplet(total, [300, 380, 480]);
+    total = minTriplet(total, [320, 400, 500]);
     details.push(`Remise groupée débarras + nettoyage : -10 % (${discount.map(p => EUR.format(p)).join(' / ')})`);
   }
 
@@ -258,11 +259,19 @@ function escapeHtml(str) {
   return String(str).replace(/[&<>'"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c]));
 }
 
-['change', 'input'].forEach(eventName => {
-  document.addEventListener(eventName, (event) => {
-    if (event.target.closest('#estimatorForm')) calculate();
+
+function bindEstimatorEvents() {
+  const estimatorForm = $('estimatorForm');
+  if (!estimatorForm) return;
+  estimatorForm.querySelectorAll('input, select, textarea').forEach((field) => {
+    ['input', 'change', 'click'].forEach((eventName) => {
+      field.addEventListener(eventName, calculate);
+    });
   });
-});
+}
+
+
+bindEstimatorEvents();
 
 $('contactForm').addEventListener('submit', (event) => {
   calculate();

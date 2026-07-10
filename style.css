@@ -185,10 +185,11 @@ input:focus, select:focus, textarea:focus { border-color: var(--blue); box-shado
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
-.checkbox-grid label {
+.checkbox-grid label, .checkbox-grid .check-item {
   display: flex;
   align-items: flex-start;
-  gap: 9px;
+  justify-content: flex-start;
+  gap: 10px;
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -196,12 +197,21 @@ input:focus, select:focus, textarea:focus { border-color: var(--blue); box-shado
   color: var(--ink);
   font-weight: 700;
 }
+.checkbox-grid .check-item span {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.35;
+}
 .checkbox-grid input {
   width: 18px;
   height: 18px;
-  margin-top: 2px;
-  flex: 0 0 auto;
+  margin: 2px 0 0;
+  flex: 0 0 18px;
   accent-color: var(--green);
+}
+.checkbox-grid .check-item:has(input:checked) {
+  border-color: rgba(104,183,46,.55);
+  background: #f6ffef;
 }
 .result-card {
   position: sticky;
