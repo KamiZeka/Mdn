@@ -76,7 +76,7 @@
       <div class="section-head">
         <p class="eyebrow">Nos prestations</p>
         <h2>Deux services clairs, une estimation simple</h2>
-        <p>MDN ne propose pas du ménage régulier. Le nettoyage est un nettoyage spécialisé : remise en état après débarras, logement encombré, cave, garage, succession, après petits travaux ou logement très sale.</p>
+        <p>MDN ne propose pas du ménage régulier. Le nettoyage est un nettoyage spécialisé : remise en état, fin de bail/location, après débarras, cave, garage, succession, fin de travaux/chantier ou logement très sale.</p>
       </div>
       <div class="cards three">
         <article class="service-card">
@@ -87,7 +87,7 @@
         <article class="service-card">
           <div class="icon">🧼</div>
           <h3>Nettoyage spécialisé</h3>
-          <p>Remise en état après débarras, surfaces très poussiéreuses, sols, sanitaires, cuisine, cave, garage ou après petits travaux.</p>
+          <p>Remise en état, fin de bail/location, après débarras, surfaces très poussiéreuses, sols, sanitaires, cuisine, cave, garage ou fin de travaux/chantier.</p>
         </article>
         <article class="service-card highlight">
           <div class="icon">✅</div>
@@ -115,7 +115,7 @@
               </label>
               <label class="big-choice">
                 <input type="checkbox" id="serviceNettoyage" />
-                <span><strong>🧼 Estimer un nettoyage spécialisé</strong><small>Remise en état, cave, garage, après débarras, très sale.</small></span>
+                <span><strong>🧼 Estimer un nettoyage spécialisé</strong><small>Remise en état, fin de bail/location, cave, garage, après débarras, très sale.</small></span>
               </label>
             </div>
             <p class="discount-note" id="discountNote" hidden>✅ Débarras + nettoyage spécialisé : remise groupée -10 % appliquée automatiquement.</p>
@@ -165,6 +165,15 @@
                   <option value="difficile">Difficile</option>
                 </select>
               </label>
+              <label>Distance camion / logement
+                <select id="debDistance">
+                  <option value="devant">Devant ou très proche</option>
+                  <option value="moins20">Moins de 20 mètres</option>
+                  <option value="20_50">Entre 20 et 50 mètres</option>
+                  <option value="plus50">Plus de 50 mètres</option>
+                  <option value="complique">Accès compliqué / chemin / résidence</option>
+                </select>
+              </label>
               <label>Objets lourds
                 <select id="debLourds">
                   <option value="non">Non</option>
@@ -194,6 +203,32 @@
                 </select>
               </label>
             </div>
+
+            <div class="sub-section">
+              <h4>Détails utiles pour affiner le débarras</h4>
+              <p>Ces éléments peuvent changer le temps de manutention, le tri ou les frais d’évacuation.</p>
+              <div class="checkbox-grid">
+                <label><input type="checkbox" name="debDechets" value="matelas" data-label="Matelas / canapé" /> Matelas / canapé</label>
+                <label><input type="checkbox" name="debDechets" value="electromenager" data-label="Électroménager" /> Électroménager</label>
+                <label><input type="checkbox" name="debDechets" value="gravats" data-label="Gravats" /> Gravats</label>
+                <label><input type="checkbox" name="debDechets" value="verts" data-label="Déchets verts" /> Déchets verts</label>
+                <label><input type="checkbox" name="debDechets" value="chimiques" data-label="Peinture / produits chimiques" /> Peinture / produits chimiques</label>
+                <label><input type="checkbox" name="debDechets" value="sacs" data-label="Beaucoup de sacs / déchets divers" /> Beaucoup de sacs / déchets divers</label>
+                <label><input type="checkbox" name="debDechets" value="inconnu" data-label="Je ne sais pas" /> Je ne sais pas</label>
+              </div>
+            </div>
+
+            <div class="sub-section">
+              <h4>Situation particulière</h4>
+              <div class="checkbox-grid">
+                <label><input type="checkbox" name="debSpecial" value="moisissures" data-label="Moisissures importantes" /> Moisissures importantes</label>
+                <label><input type="checkbox" name="debSpecial" value="nuisibles" data-label="Présence de nuisibles" /> Présence de nuisibles</label>
+                <label><input type="checkbox" name="debSpecial" value="insalubre" data-label="Logement très insalubre" /> Logement très insalubre</label>
+                <label><input type="checkbox" name="debSpecial" value="diogene" data-label="Accumulation extrême / Diogène" /> Accumulation extrême / Diogène</label>
+                <label><input type="checkbox" name="debSpecial" value="deces" data-label="Après décès" /> Après décès</label>
+              </div>
+              <p class="small-alert">Pour les cas très insalubres, Diogène, nuisibles ou produits spécifiques, le tarif final sera confirmé après photos, appel ou visite.</p>
+            </div>
           </fieldset>
 
           <fieldset class="panel" id="nettoyagePanel" hidden>
@@ -203,14 +238,20 @@
               <label>Surface à nettoyer en m²
                 <input id="netSurface" type="number" min="1" max="500" value="50" inputmode="decimal" />
               </label>
-              <label>Type de nettoyage
+              <label>Type de nettoyage spécialisé
                 <select id="netType">
-                  <option value="apres_debarras">Après débarras simple</option>
+                  <option value="remise_etat" selected>Remise en état</option>
+                  <option value="apres_debarras">Remise en état après débarras</option>
+                  <option value="fin_bail">Fin de bail / location</option>
                   <option value="cave_garage">Cave / garage / dépendance</option>
-                  <option value="travaux">Après petits travaux</option>
-                  <option value="logement_sale">Logement sale / très poussiéreux</option>
-                  <option value="tres_sale">Très sale / insalubre léger</option>
+                  <option value="travaux">Fin de travaux / chantier</option>
+                  <option value="logement_encombre">Logement encombré / très poussiéreux</option>
+                  <option value="succession">Après succession</option>
+                  <option value="autre">Autre à préciser</option>
                 </select>
+              </label>
+              <label id="netAutreWrap" hidden>Précisez le type de nettoyage
+                <input id="netAutre" type="text" placeholder="Exemple : terrasse, local, remise en état particulière..." />
               </label>
               <label>État du lieu
                 <select id="netEtat">
@@ -245,6 +286,32 @@
                   <option value="beaucoup">Beaucoup de vitres</option>
                 </select>
               </label>
+              <label>Eau disponible sur place
+                <select id="netEau">
+                  <option value="oui">Oui</option>
+                  <option value="non">Non</option>
+                  <option value="inconnu">Je ne sais pas</option>
+                </select>
+              </label>
+              <label>Électricité disponible
+                <select id="netElectricite">
+                  <option value="oui">Oui</option>
+                  <option value="non">Non</option>
+                  <option value="inconnu">Je ne sais pas</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="sub-section">
+              <h4>Situation particulière nettoyage</h4>
+              <div class="checkbox-grid">
+                <label><input type="checkbox" name="netSpecial" value="moisissures" data-label="Moisissures importantes" /> Moisissures importantes</label>
+                <label><input type="checkbox" name="netSpecial" value="nuisibles" data-label="Présence de nuisibles" /> Présence de nuisibles</label>
+                <label><input type="checkbox" name="netSpecial" value="insalubre" data-label="Logement très insalubre" /> Logement très insalubre</label>
+                <label><input type="checkbox" name="netSpecial" value="diogene" data-label="Accumulation extrême / Diogène" /> Accumulation extrême / Diogène</label>
+                <label><input type="checkbox" name="netSpecial" value="deces" data-label="Après décès" /> Après décès</label>
+              </div>
+              <p class="small-alert">Ces cas demandent souvent des photos ou une visite pour confirmer le devis. Le nettoyage MDN reste un nettoyage spécialisé, pas du ménage régulier.</p>
             </div>
           </fieldset>
         </form>

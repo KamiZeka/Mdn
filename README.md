@@ -6,7 +6,7 @@ Site statique prêt pour GitHub Pages et le domaine `services-moreno.fr`.
 
 - `index.html` : page principale + simulateur de devis
 - `style.css` : design bleu / vert / blanc
-- `script.js` : calcul débarras + nettoyage spécialisé + remise 10 %
+- `script.js` : calcul débarras + nettoyage spécialisé + options avancées + remise 10 %
 - `mentions-legales.html` : mentions légales
 - `confidentialite.html` : politique de confidentialité simple
 - `cgv.html` : conditions générales simples
@@ -14,17 +14,15 @@ Site statique prêt pour GitHub Pages et le domaine `services-moreno.fr`.
 - `assets/logo-mdn.jpg` : logo MDN recadré depuis l'image fournie
 - `assets/favicon.png` : icône du site
 
-## À modifier avant publication
+## Formulaire Formspree
 
-Dans `index.html`, remplace :
+Le formulaire est déjà configuré avec :
 
 ```html
 https://formspree.io/f/xbdvnjjd
 ```
 
-par l'URL de ton formulaire Formspree.
-
-Sans ça, le simulateur fonctionne, mais l'envoi du formulaire est bloqué volontairement.
+Après mise en ligne, fais un test d'envoi. Formspree peut demander une validation du formulaire ou de l'adresse email au premier envoi.
 
 ## Mise en ligne GitHub Pages
 
