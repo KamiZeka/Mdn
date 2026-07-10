@@ -23,15 +23,16 @@ const fillCoeff = {
 };
 
 
+
 const rateNettoyage = {
-  remise_etat: [6, 9, 13],
-  apres_debarras: [6, 10, 15],
-  fin_bail: [6, 10, 15],
-  cave_garage: [6, 10, 15],
-  travaux: [8, 12, 18],
-  logement_encombre: [10, 16, 24],
-  succession: [8, 13, 20],
-  autre: [8, 12, 18]
+  remise_etat: [5, 8, 12],
+  apres_debarras: [5, 8, 12],
+  fin_bail: [5, 8, 12],
+  cave_garage: [5, 8, 12],
+  travaux: [6, 10, 15],
+  logement_encombre: [8, 14, 20],
+  succession: [7, 12, 18],
+  autre: [6, 10, 15]
 };
 
 const wasteSupplements = {
@@ -106,7 +107,7 @@ function calcDebarras() {
     if (wasteSupplements[waste]) prices = addTriplet(prices, wasteSupplements[waste]);
   });
 
-  prices = minTriplet(prices, [250, 300, 380]);
+  prices = minTriplet(prices, [220, 280, 350]);
 
   const wasteLabels = checkedLabels('debDechets');
   const specialLabels = checkedLabels('debSpecial');
@@ -147,28 +148,28 @@ function calcNettoyage() {
   let prices = (rateNettoyage[type] || rateNettoyage.autre).map(rate => surface * rate);
 
   let coeff = 1;
-  if (val('netEtat') === 'poussiereux') coeff += 0.12;
-  if (val('netEtat') === 'sale') coeff += 0.30;
-  if (val('netEtat') === 'tres_sale') coeff += 0.60;
+  if (val('netEtat') === 'poussiereux') coeff += 0.10;
+  if (val('netEtat') === 'sale') coeff += 0.25;
+  if (val('netEtat') === 'tres_sale') coeff += 0.45;
 
   const specials = checkedValues('netSpecial');
   if (specials.includes('moisissures')) coeff += 0.15;
   if (specials.includes('nuisibles')) coeff += 0.25;
-  if (specials.includes('insalubre')) coeff += 0.35;
-  if (specials.includes('diogene')) coeff += 0.50;
-  if (specials.includes('deces')) coeff += 0.20;
+  if (specials.includes('insalubre')) coeff += 0.30;
+  if (specials.includes('diogene')) coeff += 0.45;
+  if (specials.includes('deces')) coeff += 0.15;
 
   prices = multiplyTriplet(prices, coeff);
 
-  if (val('netCuisine') === 'oui') prices = addTriplet(prices, [60, 80, 120]);
-  if (val('netOdeurs') === 'oui') prices = addTriplet(prices, [80, 100, 160]);
-  if (val('netDesinfection') === 'oui') prices = addTriplet(prices, [90, 120, 180]);
-  if (val('netVitres') === 'quelques') prices = addTriplet(prices, [40, 50, 80]);
-  if (val('netVitres') === 'beaucoup') prices = addTriplet(prices, [90, 120, 180]);
-  if (val('netEau') === 'non') prices = addTriplet(prices, [60, 100, 180]);
-  if (val('netElectricite') === 'non') prices = addTriplet(prices, [40, 80, 150]);
+  if (val('netCuisine') === 'oui') prices = addTriplet(prices, [50, 80, 110]);
+  if (val('netOdeurs') === 'oui') prices = addTriplet(prices, [60, 90, 140]);
+  if (val('netDesinfection') === 'oui') prices = addTriplet(prices, [70, 110, 160]);
+  if (val('netVitres') === 'quelques') prices = addTriplet(prices, [30, 50, 80]);
+  if (val('netVitres') === 'beaucoup') prices = addTriplet(prices, [70, 110, 160]);
+  if (val('netEau') === 'non') prices = addTriplet(prices, [40, 80, 150]);
+  if (val('netElectricite') === 'non') prices = addTriplet(prices, [30, 60, 120]);
 
-  prices = minTriplet(prices, [150, 220, 300]);
+  prices = minTriplet(prices, [150, 200, 280]);
 
   const specialLabels = checkedLabels('netSpecial');
   const details = [
@@ -239,7 +240,7 @@ function calculate() {
   if (hasDebarras && hasNettoyage) {
     discount = total.map(p => round10(p * 0.10));
     total = total.map((p, i) => p - discount[i]);
-    total = minTriplet(total, [320, 400, 500]);
+    total = minTriplet(total, [300, 380, 480]);
     details.push(`Remise groupée débarras + nettoyage : -10 % (${discount.map(p => EUR.format(p)).join(' / ')})`);
   }
 

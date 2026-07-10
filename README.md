@@ -52,3 +52,6 @@ TON-PSEUDO-GITHUB.github.io
 ```
 
 Remplace `TON-PSEUDO-GITHUB` par ton nom d'utilisateur GitHub.
+
+
+Mise à jour : grille de tarifs nettoyage adoucie pour éviter une fourchette haute trop élevée sur les logements en état correct. Cache CSS/JS forcé en v=20260710d.
