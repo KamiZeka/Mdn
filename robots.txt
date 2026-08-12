@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /estimateur-debarras.html
 Sitemap: https://services-moreno.fr/sitemap.xml
