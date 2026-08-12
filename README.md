@@ -1,29 +1,27 @@
-# Services Moreno — services-moreno.fr
-
-Site statique publié avec GitHub Pages.
-
-## Architecture
-
-- `index.html` — accueil Services Moreno (marque ombrelle)
-- `automatisation.html` — Moreno Automation
-- `debarras-nettoyage.html` — vitrine Moreno Débarras & Nettoyage
-- `estimateur-debarras.html` — estimateur MDN historique (fonctionnel, non indexé)
-- `brand.css` — identité multi-services / automation / débarras
-- `style.css` + `script.js` — estimateur débarras
-- `assets/services-moreno.webp` — logo Services Moreno
-- `assets/moreno-automation.webp` — logo Moreno Automation
-- `assets/services-moreno-favicon.png` — favicon principal
-- `assets/logo-mdn.jpg` — logo MDN historique
-- `mentions-legales.html`, `confidentialite.html`, `cgv.html` — pages légales
-- `CNAME` — domaine `services-moreno.fr`
+# Services Moreno — site V3
 
 ## Positionnement
 
-Services Moreno est une marque ombrelle évolutive qui peut accueillir plusieurs activités distinctes. Chaque expertise conserve son identité et son offre, tandis que Services Moreno porte une méthode commune et une communication cohérente.
+Services Moreno est une marque ombrelle évolutive. Les expertises actuellement publiques sont :
+- Moreno Automation ;
+- Moreno Débarras & Nettoyage.
 
-Expertises actuellement présentées :
+Une future activité de conception / création d'expériences numériques, notamment Roblox, reste possible mais n'est pas encore publiée comme offre commerciale.
 
-- Moreno Automation — automatisation de processus & workflows sur mesure.
-- Moreno Débarras & Nettoyage — débarras et nettoyage spécialisé dans les Landes.
+## Changements V3
 
-Le site est conçu pour permettre l'ajout futur d'autres activités sans modifier le positionnement global de Services Moreno.
+- SEO de la home non limité aux Landes ;
+- navigation de footer symétrique entre les expertises ;
+- Moreno Automation ouvert aux entreprises, indépendants, associations et demandes de particuliers ;
+- exemples de workflows possibles clairement présentés comme exemples, pas comme références clients ;
+- formulaire de diagnostic Automation via Formspree ;
+- conditions de service Moreno Automation ;
+- prise en compte du futur cadre B2C : aucune commande consommateur avant ajout du médiateur de la consommation ;
+- confidentialité mise à jour pour les deux formulaires.
+
+## Formspree
+
+Les demandes MDN et Moreno Automation utilisent actuellement :
+`https://formspree.io/f/xbdvnjjd`
+
+Les sujets permettent de différencier les formulaires.
