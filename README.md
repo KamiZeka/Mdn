@@ -19,9 +19,11 @@ Site statique publié avec GitHub Pages.
 
 ## Positionnement
 
-Services Moreno sert de marque ombrelle avec deux pôles distincts :
+Services Moreno est une marque ombrelle évolutive qui peut accueillir plusieurs activités distinctes. Chaque expertise conserve son identité et son offre, tandis que Services Moreno porte une méthode commune et une communication cohérente.
 
-1. Moreno Automation — automatisation de processus & workflows sur mesure.
-2. Moreno Débarras & Nettoyage — débarras et nettoyage spécialisé dans les Landes.
+Expertises actuellement présentées :
 
-Le site évite de mélanger les deux offres dans les pages métier.
+- Moreno Automation — automatisation de processus & workflows sur mesure.
+- Moreno Débarras & Nettoyage — débarras et nettoyage spécialisé dans les Landes.
+
+Le site est conçu pour permettre l'ajout futur d'autres activités sans modifier le positionnement global de Services Moreno.
